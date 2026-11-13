@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precision Auto Works | Expert Car Repair & Maintenance</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --accent: #e11d48;
+            --accent-hover: #be123c;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+        
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+        }
+
+        .top-bar span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 5%;
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: var(--white);
+            padding: 7rem 5%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            max-width: 800px;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 600px;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 5%;
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+            font-size: 1.05rem;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border-top: 4px solid var(--accent);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Why Choose Us */
+        .features {
+            padding: 5rem 5%;
+            background-color: var(--white);
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            text-align: center;
+        }
+
+        .feature-item h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .feature-item p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Contact & Booking Section */
+        .contact {
+            padding: 5rem 5%;
+            background-color: var(--light-bg);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .contact-info p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .booking-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--accent);
+        }
+
+        .booking-form button {
+            width: 100%;
+            padding: 0.85rem;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem 5%;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <span>📍 456 Auto Drive, Motor City</span>
+        <span>📞 Emergency Hotline: (555) 321-7890</span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Precision<span>Auto</span></div>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">Why Us</a></li>
+            <li><a href="#contact">Book Appointment</a></li>
+        </ul>
+        <a href="#contact" class="btn">Get a Quote</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Reliable Car Repair & Maintenance You Can Count On</h1>
+        <p>Expert diagnostics, transparent quotes, and professional servicing for all makes and models by certified mechanics.</p>
+        <div class="hero-btns">
+            <a href="#contact" class="btn">Book Service Now</a>
+            <a href="#services" class="btn-secondary">Explore Services</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title">Our Workshop Services</h2>
+        <p class="section-subtitle">We offer comprehensive solutions to keep your car performing at its absolute best.</p>
+        
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>🔍 Engine Diagnostics</h3>
+                <p>Advanced diagnostic tools to quickly identify check-engine warnings, odd sounds, and performance snags.</p>
+            </div>
+            <div class="service-card">
+                <h3>🛑 Brake & Suspension</h3>
+                <p>Professional replacement of brake pads, rotors, struts, and total wheel alignment services.</p>
+            </div>
+            <div class="service-card">
+                <h3>🛢️ Oil & Fluid Changes</h3>
+                <p>Routine preventative maintenance including high-quality oil changes, coolant flushes, and filter swaps.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="features" id="about">
+        <h2 class="section-title" style="text-align: center;">Why Choose Precision Auto?</h2>
+        <p class="section-subtitle" style="text-align: center;">We build long-term relationships with honest pricing and top-tier workmanship.</p>
+        
+        <div class="features-container">
+            <div class="feature-item">
+                <h4>🔧 Certified Experts</h4>
+                <p>Skilled mechanics with years of hands-on experience handling domestic and import vehicles.</p>
+            </div>
+            <div class="feature-item">
+                <h4>🛡️ Quality Guarantee</h4>
+                <p>We stand completely behind our workmanship with reliable warranties on all installed parts.</p>
+            </div>
+            <div class="feature-item">
+                <h4>⚡ Fast Turnaround</h4>
+                <p>Clear communication and quick service timelines so you can get back on the road safely.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Booking Section -->
+    <section class="contact" id="contact">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Visit Our Shop Today</h3>
+                <p>Drop by our garage or book your slot online. We are ready to handle all your vehicle care requirements.</p>
+                <ul class="contact-details">
+                    <li>🕒 Hours: Monday - Friday, 8:00 AM - 6:00 PM</li>
+                    <li>📍 Address: 456 Auto Drive, Motor City</li>
+                    <li>☎️ Phone: (555) 321-7890</li>
+                </ul>
+            </div>
+            
+            <div class="booking-form">
+                <h3 style="margin-bottom: 1.2rem; font-size: 1.25rem; color: var(--primary);">Schedule an Appointment</h3>
+                <form>
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" placeholder="Alex Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="(555) 000-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Service Needed</label>
+                        <select>
+                            <option>Routine Maintenance / Oil Change</option>
+                            <option>Brake Inspection & Repair</option>
+                            <option>Engine Diagnostics</option>
+                            <option>General Repair</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Precision Auto Works. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
